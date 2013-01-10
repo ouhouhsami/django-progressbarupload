@@ -50,7 +50,7 @@ Usage
 
 Set the ```change_form_template``` and ```add_form_template``` attributes in your ModelAdmin to 'progressbarupload/change_form.html'.
 
-    ```
+    
     from django.contrib import admin
     from my_awesome_app.models import MyAwesomeModelWithFiles
 
@@ -59,13 +59,13 @@ Set the ```change_form_template``` and ```add_form_template``` attributes in you
         add_form_template = 'progressbarupload/change_form.html'
 
     admin.site.register(MyAwesomeModelWithFiles, UploadFileModelAdmin)
-    ```
+    
 
 ### Form and ModelForm
 
 To use a progress bar in your custom ModelForm or Form, load the progress_bar template tag set ```{% load progress_bar %}``` in the template, and use the following template tags ```{% progress_bar_media %}``` between <head> tags to load javascript files and  ```{% progress_bar %}``` where you and to display the progress bar.
 
-    ```
+    
     {% load progress_bar %}
 
     <!DOCTYPE html>
@@ -85,7 +85,7 @@ To use a progress bar in your custom ModelForm or Form, load the progress_bar te
     </body>
     </html>
 
-    ```
+    
 
 
 Further information
