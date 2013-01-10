@@ -1,9 +1,8 @@
-=================
-ProgressBarUpload
-=================
+========================
+django-progressbarupload
+========================
 
-ProgressBarUpload is a simple Django application that instantiate an html5 progress bar on ModelAdmin change form
-to show upload progression of all files in request.FILES (FileField and ImageField on models).
+django-progressbarupload is a simple Django application that instantiate an html5 progress bar on ModelAdmin change form to show upload progression of all files in request.FILES (FileField and ImageField on models).
 
 ![ScreenShot](https://raw.github.com/ouhouhsami/django-progressbarupload/master/doc/img/admin_progress_bar_screenshot.png)
 
