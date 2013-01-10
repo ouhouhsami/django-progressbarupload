@@ -4,10 +4,14 @@ django-progressbarupload
 
 django-progressbarupload is a simple Django application that instantiate an html5 progress bar on ModelAdmin change form to show upload progression of all files in request.FILES (FileField and ImageField on models).
 
-![ScreenShot](https://raw.github.com/ouhouhsami/django-progressbarupload/master/doc/img/admin_progress_bar_screenshot.png)
+![ScreenShot](https://raw.github.com/ouhouhsami/django-progressbarupload/master/docs/img/admin_progress_bar_screenshot.png)
 
 Quick start
 -----------
+
+0. Install the app
+
+	pip install -e git+http://github.com/ouhouhsami/django-progressbarupload.git#egg=django-progressbarupload
 
 1. Add "progressbarupload.uploadhandler.ProgressBarUploadHandler" to your FILE_UPLOAD_HANDLERS setting like this:: 
 
