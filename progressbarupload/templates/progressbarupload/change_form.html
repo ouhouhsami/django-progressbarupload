@@ -1,11 +1,13 @@
 {% extends "admin/change_form.html" %}
+{% load progress_bar %}
+
+{% block extrahead %}{{ block.super }}
+  {% progress_bar_media %}
+{% endblock %}
 
 {% block submit_buttons_bottom %}
-  <script>
-    var upload_progress_url = '{% url upload_progress %}';
-  </script>
-  <div style="text-align:right">
-  <progress  id="progressBar" data-progress_bar_uuid="{{ uuid }}" value="0" max="100" hidden></progress>
-  </div> 
+<div style="text-align:right">
+  {% progress_bar %}
+</div>
   {{ block.super }}
 {% endblock %}

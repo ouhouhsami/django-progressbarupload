@@ -5,7 +5,11 @@ from django.core.cache import cache
 
 
 def upload_progress(request):
-    """ used by Ajax calls """
+    """
+    Used by Ajax calls
+
+    Return the upload progress and total length values
+    """
     if 'X-Progress-ID' in request.GET:
         progress_id = request.GET['X-Progress-ID']
     elif 'X-Progress-ID' in request.META:
