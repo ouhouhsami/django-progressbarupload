@@ -10,8 +10,9 @@ django-progressbarupload is a simple Django application that instantiates an HTM
 Quick start
 -----------
 
-Requirements : Django 1.4.3 (tested)
-To work, it needs django.contrib.staticfiles app to serve static files (located here: static/js/progress_bar.js).
+Requirements : 
+* Django 1.4.3 (tested).
+* django.contrib.staticfiles app to serve static files
 
 
 1. Install the app
@@ -26,17 +27,17 @@ To work, it needs django.contrib.staticfiles app to serve static files (located 
     INSTALLED_APPS += ('progressbarupload', )
     ```
 
-3. Add "progressbarupload.uploadhandler.ProgressBarUploadHandler" to your FILE_UPLOAD_HANDLERS setting like this:: 
+3. Add "progressbarupload.uploadhandler.ProgressBarUploadHandler" to your FILE_UPLOAD_HANDLERS setting:
 
     ```python
     FILE_UPLOAD_HANDLERS = (
-    "progressbarupload.uploadhandler.ProgressBarUploadHandler",
-    "django.core.files.uploadhandler.MemoryFileUploadHandler",
-    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
+        "progressbarupload.uploadhandler.ProgressBarUploadHandler",
+        "django.core.files.uploadhandler.MemoryFileUploadHandler",
+        "django.core.files.uploadhandler.TemporaryFileUploadHandler",
     )
     ```
 
-4. Include the progressbarupload URLconf in your project urls.py like this:
+4. Include the progressbarupload URLconf in your project urls.py:
 
     ```
     (r'^progressbarupload/', include('progressbarupload.urls')),
@@ -49,7 +50,7 @@ Usage
 
 Set the ```change_form_template``` and ```add_form_template``` attributes in your ModelAdmin to 'progressbarupload/change_form.html'.
 
-    ```python
+    ```
     from django.contrib import admin
     from my_awesome_app.models import MyAwesomeModelWithFiles
 
@@ -90,7 +91,7 @@ To use a progress bar in your custom ModelForm or Form, load the progress_bar te
 Further information
 -------------------
 
-Make sure your browser renders html5 ```<progress>``` tag (for instance <progress value="22" max="100"></progress>) and uses data-* attribute (IE>10, FF>6.0, Chrome>8.0, Opera>11.0).
+Make sure your browser renders HTML5 ```<progress>``` tag and uses data-* attribute (IE>10, FF>6.0, Chrome>8.0, Opera>11.0).
 
 As Django has a unique TemporaryFileUploadHandler for all request.FILES. For ModelAdmin, if you have related models, using TabularInline, the upload progress will also be shown in the admin add/change form as soon as you use the right templates in your ModelAdmin (and even if your ModelAdmin doesn't contain any file upload).
 
