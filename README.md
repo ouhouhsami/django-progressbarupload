@@ -17,6 +17,14 @@ Requirements :
 
 1. Install the app
 
+    pypi version
+
+    ```
+    pip install django-progressbarupload
+    ```
+
+    development version
+
     ```
     pip install -e git+http://github.com/ouhouhsami/django-progressbarupload.git#egg=django-progressbarupload
     ```
