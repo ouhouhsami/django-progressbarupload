@@ -11,22 +11,29 @@ Quick start
 
 0. Install the app
 
+	```
 	pip install -e git+http://github.com/ouhouhsami/django-progressbarupload.git#egg=django-progressbarupload
+	```
 
 1. Add "progressbarupload.uploadhandler.ProgressBarUploadHandler" to your FILE_UPLOAD_HANDLERS setting like this:: 
 
+	```python
 	FILE_UPLOAD_HANDLERS = (
 	    "progressbarupload.uploadhandler.ProgressBarUploadHandler",
 	    "django.core.files.uploadhandler.MemoryFileUploadHandler",
 	    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
 	)
+	```
 
 2. Include the progressbarupload URLconf in your project urls.py like this::
 
+	```
     (r'^progressbarupload/', include('progressbarupload.urls')),
+    ```
 
 3. Use progressbarupload.admin.ProgressBarModelAdmin as base class for your ModelAdmin on which you want to have a progress bar.
 
+	```python
 	from django.contrib import admin
 	from progressbarupload.admin import ProgressBarModelAdmin
 	from my_awesome_app.models import MyAwesomeModelWithFiles
@@ -35,7 +42,7 @@ Quick start
 	    pass
 
 	admin.site.register(MyAwesomeModelWithFiles, UploadFileModelAdmin)
-
+	```
 
 Further information
 -------------------
