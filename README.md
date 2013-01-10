@@ -6,6 +6,9 @@ django-progressbarupload is a simple Django application that instantiate an html
 
 ![ScreenShot](https://raw.github.com/ouhouhsami/django-progressbarupload/master/docs/img/admin_progress_bar_screenshot.png)
 
+The app is tested under django 1.4.3. To work, it needs django.contrib.staticfiles app to serve static files (progress_bar.js).
+
+
 Quick start
 -----------
 
