@@ -35,7 +35,7 @@ Requirements :
     INSTALLED_APPS += ('progressbarupload', )
     ```
 
-3. Add "progressbarupload.uploadhandler.ProgressBarUploadHandler" to your FILE_UPLOAD_HANDLERS setting:
+3. Add "progressbarupload.uploadhandler.ProgressBarUploadHandler" to your FILE_UPLOAD_HANDLERS setting
 
     ```python
     FILE_UPLOAD_HANDLERS = (
@@ -45,7 +45,7 @@ Requirements :
     )
     ```
 
-4. Include the progressbarupload URLconf in your project urls.py:
+4. Include the progressbarupload URLconf in your project urls.py
 
     ```
     (r'^progressbarupload/', include('progressbarupload.urls')),
