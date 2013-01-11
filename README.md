@@ -83,7 +83,6 @@ To use a progress bar in your custom ModelForm or Form, load the progress_bar te
     </head>
 
     <body>
-      <h1>Form test</h1>
       <form enctype="multipart/form-data" method="post" action=".">
          {% csrf_token %}
          {{ form }}
