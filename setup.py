@@ -14,7 +14,7 @@ setup(
     license = 'BSD License',
     description = 'Progress bar upload for Django',
     long_description = README,
-    url = 'http://www.example.com/',
+    url = 'https://github.com/ouhouhsami/django-progressbarupload',
     author = 'ouhouhsami',
     author_email = 'samuel.goldszmidt@gmail.com',
     classifiers = [
