@@ -92,8 +92,6 @@ To use a progress bar in your custom ModelForm or Form, load the progress_bar te
     </body>
     </html>
 
-    
-
 
 Further information
 -------------------
@@ -104,4 +102,18 @@ As Django has a unique TemporaryFileUploadHandler for all request.FILES. For Mod
 
 Custom TemporaryFileUploadHandler copied from http://djangosnippets.org/snippets/678/
 
+Launch tests
+------------
+
+```
+# get the application code
+git clone https://github.com/ouhouhsami/django-progressbarupload.git
+cd django-progressbarupload
+# create a virtualenv
+mkvirtualenv progressbarupload
+# install requirements for tests
+pip install -r requirements/tests.txt
+# launch tests
+django-admin.py test --settings=progressbarupload.test_settings progressbarupload
+```
 
