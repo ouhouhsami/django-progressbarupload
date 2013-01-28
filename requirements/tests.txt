@@ -1,1 +1,2 @@
 django-discover-runner
+django==1.4.3

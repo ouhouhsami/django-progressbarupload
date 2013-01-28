@@ -105,12 +105,15 @@ Custom TemporaryFileUploadHandler copied from http://djangosnippets.org/snippets
 Launch tests
 ------------
 
+It assumes you have installed virtualenvwrapper (http://virtualenvwrapper.readthedocs.org/en/latest/)
+
 ```
 # get the application code
 git clone https://github.com/ouhouhsami/django-progressbarupload.git
 cd django-progressbarupload
 # create a virtualenv
 mkvirtualenv progressbarupload
+add2virtualenv .
 # install requirements for tests
 pip install -r requirements/tests.txt
 # launch tests
