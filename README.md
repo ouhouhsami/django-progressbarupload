@@ -2,6 +2,8 @@
 django-progressbarupload
 ========================
 
+[![Build Status](https://travis-ci.org/ouhouhsami/django-progressbarupload.png?branch=master)](https://travis-ci.org/ouhouhsami/django-progressbarupload)
+
 django-progressbarupload is a simple Django application that instantiates an HTML5 upload progress bar when the user submit a form with files (a form having basically FileField(s) and/or ImageField(s), and an enctype="multipart/form-data").
 
 ![ScreenShot](https://raw.github.com/ouhouhsami/django-progressbarupload/master/docs/img/admin_progress_bar_screenshot.png)
