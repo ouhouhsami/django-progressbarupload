@@ -114,8 +114,8 @@ cd django-progressbarupload
 # create a virtualenv
 mkvirtualenv progressbarupload
 add2virtualenv .
-# install requirements for tests
-pip install -r requirements/tests.txt
+# install requirements for tests and django (set the django version you want to use)
+pip install -r requirements/tests.txt django==1.4.3
 # launch tests
 django-admin.py test --settings=progressbarupload.test_settings progressbarupload
 ```

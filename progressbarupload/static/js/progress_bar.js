@@ -6,13 +6,16 @@ $(document).ready(function(){
     if ($.data(this, 'submitted')) return false;
     // Append X-Progress-ID uuid form action
     this.action += (this.action.indexOf('?') == -1 ? '?' : '&') + 'X-Progress-ID=' + uuid;
-    $('#progressBar').removeAttr('hidden');
     // Update progress bar
     function update_progress_info() {
-      $.getJSON(upload_progress_url+'?X-Progress-ID='+uuid, {'X-Progress-ID': uuid}, function(data, status){
+      $.getJSON(upload_progress_url, {'X-Progress-ID': uuid}, function(data, status){
         if(data){
+          $('#progressBar').removeAttr('hidden');  // show progress bar if there are datas
           var progress = parseInt(data.uploaded, 10)/parseInt(data.length, 10)*100;
           $('#progressBar').attr('value', progress);
+        }
+        else {
+          $('#progressBar').attr('hidden', '');  // hide progress bar if no datas
         }
         window.setTimeout(update_progress_info, 20);
       });
