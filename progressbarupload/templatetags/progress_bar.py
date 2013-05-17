@@ -16,12 +16,12 @@ def progress_bar():
     and url of ajax function needed to get upload progress
     in js/progress_bar.js file.
     """
-    prograss_bar_tag = '<progress id="progressBar" ' \
+    progress_bar_tag = '<progress id="progressBar" ' \
         'data-progress_bar_uuid="%s" value="0" max="100" ' \
         'hidden></progress>' % (uuid.uuid4())
     upload_progress_url = '<script>upload_progress_url = "%s"</script>' \
         % (reverse('upload_progress'))
-    return mark_safe(prograss_bar_tag + upload_progress_url)
+    return mark_safe(progress_bar_tag + upload_progress_url)
 
 
 @register.simple_tag
