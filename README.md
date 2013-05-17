@@ -69,7 +69,17 @@ Set the ```change_form_template``` and ```add_form_template``` attributes in you
         add_form_template = 'progressbarupload/change_form.html'
 
     admin.site.register(MyAwesomeModelWithFiles, UploadFileModelAdmin)
-    
+
+Demo
+----
+
+This app includes a demo app, just go inside testapp dir and run
+
+    python manage.py syncdb
+    python manage.py runserver
+
+then go to http://127.0.0.1:8000/admin or http://127.0.0.1:8000/admin http://127.0.0.1:8000/testapp/form or http://127.0.0.1:8000/testapp/modelform
+
 
 ### Form and ModelForm
 
