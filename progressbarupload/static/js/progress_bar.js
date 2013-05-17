@@ -9,6 +9,7 @@ $(document).ready(function(){
     // Update progress bar
     function update_progress_info() {
       $.getJSON(upload_progress_url, {'X-Progress-ID': uuid}, function(data, status){
+        //console.log(data);
         if(data){
           $('#progressBar').removeAttr('hidden');  // show progress bar if there are datas
           var progress = parseInt(data.uploaded, 10)/parseInt(data.length, 10)*100;
@@ -22,5 +23,6 @@ $(document).ready(function(){
     }
     window.setTimeout(update_progress_info, 20);
     $.data(this, 'submitted', true); // mark form as submitted.
+    return true;
   });
 });

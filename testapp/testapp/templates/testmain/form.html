@@ -1,0 +1,20 @@
+{% load progress_bar %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form and ModelForm tests</title>
+{% progress_bar_media %}
+</head>
+
+<body>
+  <h1>Form and ModelForm tests</h1>
+  <form enctype="multipart/form-data" method="post" action=".">
+  	{% csrf_token %}
+  	{{ form }}
+  	{% progress_bar %}
+  	<input type="submit" />
+  </form>
+</body>
+</html>
