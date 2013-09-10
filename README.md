@@ -53,6 +53,12 @@ Requirements :
     (r'^progressbarupload/', include('progressbarupload.urls')),
     ```
 
+5. In your settings file, if you don't want to include jquery with {% progress_bar_media %}, then set:
+
+    ``` python
+    PROGRESSBARUPLOAD_INCLUDE_JQUERY = False
+    ```
+
 Usage
 -----
 
