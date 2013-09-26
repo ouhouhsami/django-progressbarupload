@@ -34,8 +34,11 @@ def progress_bar_media():
 
     return rendered script tag for javascript used by progress_bar
     """
-    js = ["js/progress_bar.js",]
     if PROGRESSBARUPLOAD_INCLUDE_JQUERY:
-        js.append("http://code.jquery.com/jquery-1.8.3.min.js")
+        js = ["http://code.jquery.com/jquery-1.8.3.min.js",]
+    else:
+        js = []
+    js.append("js/progress_bar.js")
+        
     m = Media(js=js)
     return m.render()
