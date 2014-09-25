@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse
-from django.utils import simplejson
 from django.core.cache import cache
+
+try:
+    import json
+except ImportError:
+    # Django <1.7 packages simplejson for older Python versions
+    from django.utils import simplejson as json
 
 
 def upload_progress(request):
@@ -17,4 +22,4 @@ def upload_progress(request):
     if progress_id:
         cache_key = "%s_%s" % (request.META['REMOTE_ADDR'], progress_id)
         data = cache.get(cache_key)
-        return HttpResponse(simplejson.dumps(data))
+        return HttpResponse(json.dumps(data))
