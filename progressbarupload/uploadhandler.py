@@ -27,9 +27,6 @@ class ProgressBarUploadHandler(TemporaryFileUploadHandler):
                 'uploaded': 0
             })
 
-    def new_file(self, field_name, file_name, content_type, content_length, charset=None):
-        pass
-
     def receive_data_chunk(self, raw_data, start):
         if self.cache_key:
             data = cache.get(self.cache_key)
