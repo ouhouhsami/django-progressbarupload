@@ -5,7 +5,9 @@ from django.forms.widgets import Media
 from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse
 
-from progressbarupload.settings import PROGRESSBARUPLOAD_INCLUDE_JQUERY
+from django.conf import settings
+
+PROGRESSBARUPLOAD_INCLUDE_JQUERY = getattr(settings,'PROGRESSBARUPLOAD_INCLUDE_JQUERY',True)
 
 register = template.Library()
 
@@ -39,6 +41,6 @@ def progress_bar_media():
     else:
         js = []
     js.append("js/progress_bar.js")
-        
+
     m = Media(js=js)
     return m.render()
