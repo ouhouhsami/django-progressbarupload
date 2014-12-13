@@ -13,6 +13,7 @@ class ProgressBarUploadHandler(TemporaryFileUploadHandler):
         super(TemporaryFileUploadHandler, self).__init__(*args, **kwargs)
         self.progress_id = None
         self.cache_key = None
+        self.original_file_name = None
 
     def handle_raw_input(self, input_data, META, content_length, boundary, encoding=None):
         self.content_length = content_length
@@ -24,13 +25,17 @@ class ProgressBarUploadHandler(TemporaryFileUploadHandler):
             self.cache_key = "%s_%s" % (self.request.META['REMOTE_ADDR'], self.progress_id)
             cache.set(self.cache_key, {
                 'length': self.content_length,
-                'uploaded': 0
+                'uploaded': 0,
             })
+
+    def new_file(self, field_name, file_name, content_type, content_length, charset=None):
+        self.original_file_name = file_name
 
     def receive_data_chunk(self, raw_data, start):
         if self.cache_key:
-            data = cache.get(self.cache_key)
+            data = cache.get(self.cache_key, {})
             data['uploaded'] += self.chunk_size
+            data['filename'] = self.original_file_name
             cache.set(self.cache_key, data)
         return raw_data
 

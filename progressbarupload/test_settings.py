@@ -17,3 +17,10 @@ FILE_UPLOAD_HANDLERS = (
 TEST_RUNNER = 'discover_runner.DiscoverRunner'
 
 SECRET_KEY = 'very_secret_key'
+
+
+try:
+    from progressbarupload._local_tests import *
+except ImportError, e:
+    print u"FYI: You have no progressbarupload/_local_tests.py, but you should!"
+    pass
