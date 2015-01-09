@@ -5,7 +5,9 @@ from django.forms.widgets import Media
 from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse
 
-from progressbarupload.settings import PROGRESSBARUPLOAD_INCLUDE_JQUERY
+from django.conf import settings
+
+PROGRESSBARUPLOAD_INCLUDE_JQUERY = getattr(settings,'PROGRESSBARUPLOAD_INCLUDE_JQUERY',True)
 
 register = template.Library()
 
@@ -20,7 +22,7 @@ def progress_bar():
     in js/progress_bar.js file.
     """
     progress_bar_tag = '<progress id="progressBar" ' \
-        'data-progress_bar_uuid="%s" value="0" max="100" ' \
+        'data-progress_bar_uuid="%s" style="width:100%%" value="0" max="100" ' \
         'hidden></progress>' % (uuid.uuid4())
     upload_progress_url = '<script>upload_progress_url = "%s"</script>' \
         % (reverse('upload_progress'))
@@ -39,6 +41,6 @@ def progress_bar_media():
     else:
         js = []
     js.append("js/progress_bar.js")
-        
+
     m = Media(js=js)
     return m.render()
