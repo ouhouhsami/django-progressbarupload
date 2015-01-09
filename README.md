@@ -138,3 +138,37 @@ pip install -r requirements/tests.txt django==1.4.3
 django-admin.py test --settings=progressbarupload.test_settings progressbarupload
 ```
 
+New: Use transparently with uwsgi/nginx
+---------------------------------------
+The combination of uwsgi and nginx prevent django-progressbarupload from
+working because nginx buffers the entire POST request until it is complete
+before sending it to uwsgi/django. This means your application runs faster as
+uwsgi threads are less tied up, but it also makes it impossible to view to
+progress Django side.
+
+Whilst you could use XMLHttpRequest 2.0 to get the progress client-side, you
+may not have the luxury if you need to support older browsers. This is where
+[RFC1867][2] comes in. By configuring the [nginx-upload-progress-module][1] in
+the following way, it is possible to transparently support the native method as
+well as the plugin:
+
+```
+	...
+	upload_progress uploadp 1m;
+	# JSON document rather than JSONP callback, pls
+	upload_progress_json_output;
+	...
+	location ^ upload/url/pattern/
+	    track_uploads uploadp 30s {
+	}
+	...
+	location ^~ /progressbarupload/upload_progress {
+	    report_uploads uploadp;
+	}
+
+```
+
+nginx-upload-progress-module is available on ubuntu in the `nginx-extras` package.
+
+[1]: https://github.com/masterzen/nginx-upload-progress-module
+[2]: http://www.rfcreader.com/#rfc1867

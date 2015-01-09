@@ -23,14 +23,14 @@ class ProgressBarUploadHandler(TemporaryFileUploadHandler):
         if self.progress_id:
             self.cache_key = "%s_%s" % (self.request.META['REMOTE_ADDR'], self.progress_id)
             cache.set(self.cache_key, {
-                'length': self.content_length,
-                'uploaded': 0
+                'size': self.content_length,
+                'received': 0
             })
 
     def receive_data_chunk(self, raw_data, start):
         if self.cache_key:
             data = cache.get(self.cache_key)
-            data['uploaded'] += self.chunk_size
+            data['received'] += self.chunk_size
             cache.set(self.cache_key, data)
         return raw_data
 
