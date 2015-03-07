@@ -17,6 +17,7 @@ Quick start
 
 Requirements : 
 * Django 1.7.4 (tested).
+* Python 3.4
 * django.contrib.staticfiles app to serve static files
 
 
@@ -136,7 +137,7 @@ cd django-progressbarupload
 mkvirtualenv progressbarupload
 add2virtualenv .
 # install requirements for tests and django (set the django version you want to use)
-pip install -r requirements/tests.txt django==1.4.3
+pip install -r requirements/tests.txt django==1.7.4
 # launch tests
 django-admin.py test --settings=progressbarupload.test_settings progressbarupload
 ```
