@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
     # url(r'^$', 'testapp.views.home', name='home'),
     url(r'^testapp/', include('testmain.urls')),
@@ -13,5 +13,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    (r'^progressbarupload/', include('progressbarupload.urls')),
-)
+    url(r'^progressbarupload/', include('progressbarupload.urls')),
+]
