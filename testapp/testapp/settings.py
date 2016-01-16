@@ -9,6 +9,8 @@ PROGRESSBARUPLOAD_ROOT = os.path.dirname(os.path.dirname(PROJECT_DIR))
 if os.path.exists(os.path.join(PROGRESSBARUPLOAD_ROOT, 'progressbarupload')):
     sys.path.insert(0, PROGRESSBARUPLOAD_ROOT)
 
+PROGRESSBARUPLOAD_INCLUDE_JQUERY = True
+
 DEBUG = True
 
 ADMINS = (
