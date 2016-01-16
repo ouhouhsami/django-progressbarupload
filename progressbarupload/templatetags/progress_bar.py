@@ -36,7 +36,7 @@ def progress_bar_media():
     include_jquery = getattr(settings, 'PROGRESSBARUPLOAD_INCLUDE_JQUERY', False)
 
     if include_jquery:
-        js = ["http://code.jquery.com/jquery-1.8.3.min.js"]
+        js = ["//code.jquery.com/jquery-1.12.0.min.js"]
     else:
         js = []
     js.append("js/progress_bar.js")
