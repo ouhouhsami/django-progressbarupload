@@ -28,7 +28,7 @@ class ProgressBarUploadHandler(TemporaryFileUploadHandler):
                 'received': 0
             }, 30)
 
-    def new_file(self, field_name, file_name, content_type, content_length, charset=None):
+    def new_file(self, field_name, file_name, content_type, content_length, charset=None, content_typ_extra=None):
         self.original_file_name = file_name
 
     def receive_data_chunk(self, raw_data, start):
