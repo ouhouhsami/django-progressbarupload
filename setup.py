@@ -8,17 +8,17 @@ README = open(os.path.join(os.path.dirname(__file__), 'README.md')).read()
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name = 'django-progressbarupload',
-    version = '0.1.6',
-    packages = find_packages(),
-    include_package_data = True,
-    license = 'BSD License',
-    description = 'Progress bar upload for Django',
-    long_description = README,
-    url = 'https://github.com/ouhouhsami/django-progressbarupload',
-    author = 'ouhouhsami',
-    author_email = 'samuel.goldszmidt@gmail.com',
-    classifiers = [
+    name='django-progressbarupload',
+    version='0.1.6',
+    packages=find_packages(),
+    include_package_data=True,
+    license='BSD License',
+    description='Progress bar upload for Django',
+    long_description=README,
+    url='https://github.com/ouhouhsami/django-progressbarupload',
+    author='ouhouhsami',
+    author_email='samuel.goldszmidt@gmail.com',
+    classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
