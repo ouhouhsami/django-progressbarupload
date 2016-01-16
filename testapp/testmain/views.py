@@ -1,7 +1,6 @@
-# Create your views here.
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response, render
-from testmain.forms import UploadForm, UploadModelForm
+from django.shortcuts import render
+from testmain.forms import UploadModelForm
 
 
 def upload_modelform(request):
