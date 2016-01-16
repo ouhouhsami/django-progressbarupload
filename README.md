@@ -2,28 +2,37 @@
 django-progressbarupload
 ========================
 
+[![Build Status](https://travis-ci.org/ouhouhsami/django-progressbarupload.png?branch=master)](https://travis-ci.org/ouhouhsami/django-progressbarupload)
+
 django-progressbarupload is a simple Django application that instantiates an HTML5 upload progress bar when the user submits a form with files (a form having basically FileField(s) and/or ImageField(s), and an enctype="multipart/form-data").
 
-This repository is a frok from [ouhouhsami project](https://github.com/ouhouhsami/django-progressbarupload) to support django 1.7.4 and python 3.4.0
+![ScreenShot](https://raw.github.com/ouhouhsami/django-progressbarupload/master/docs/img/admin_progress_bar_screenshot.png)
 
-![ScreenShot](https://raw.githubusercontent.com/iago-suarez/django-progressbarupload/master/docs/img/admin_progress_bar_screenshot.png)
-
+###Contributors
+The following users have been contributed:
+* [Iago Suárez](https://github.com/iago-suarez)
 
 Quick start
 -----------
 
 Requirements : 
 * Django 1.7.4 (tested).
-* Python 3.4.0
+* Python 3.4
 * django.contrib.staticfiles app to serve static files
 
 
 1. Install the app
 
+    pypi version
+
+    ```
+    pip install django-progressbarupload
+    ```
+
     development version
 
     ```
-    pip install -e git+https://github.com/iago-suarez/django-progressbarupload#egg=django-progressbarupload
+    pip install -e git+http://github.com/ouhouhsami/django-progressbarupload.git#egg=django-progressbarupload
     ```
 
 2. Add progressbarupload to your INSTALLED_APPS in your settings
@@ -86,10 +95,10 @@ then go to http://127.0.0.1:8000/admin or http://127.0.0.1:8000/admin http://127
 
 To use a progress bar in your custom ModelForm or Form, load the progress_bar template tag set ```{% load progress_bar %}``` in the template, and use the following template tags ```{% progress_bar_media %}``` between <head> tags to load javascript files and  ```{% progress_bar %}``` where you and to display the progress bar.
 
-    <!DOCTYPE html>
     
     {% load progress_bar %}
 
+    <!DOCTYPE html>
     <html>
     <head>
         {% progress_bar_media %}
@@ -122,7 +131,7 @@ It assumes you have installed virtualenvwrapper (http://virtualenvwrapper.readth
 
 ```
 # get the application code
-git clone https://github.com/iago-suarez/django-progressbarupload
+git clone https://github.com/ouhouhsami/django-progressbarupload.git
 cd django-progressbarupload
 # create a virtualenv
 mkvirtualenv progressbarupload
@@ -132,4 +141,5 @@ pip install -r requirements/tests.txt django==1.7.4
 # launch tests
 django-admin.py test --settings=progressbarupload.test_settings progressbarupload
 ```
+
 
