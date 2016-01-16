@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.core.cache import cache
 from django.test.client import RequestFactory
 from django.core.files.uploadhandler import load_handler
+from time import sleep
 
 
 class ProgressBarUploadHandlerTest(TestCase):
@@ -28,4 +29,5 @@ class ProgressBarUploadHandlerTest(TestCase):
             {'uploaded': 65536, 'length': 16777216, 'filename': 'some_file.jpg'})
         h.upload_complete()
         # test if cache is cleared for the cache_key
+        sleep(31)
         self.assertFalse(h.cache_key in cache)

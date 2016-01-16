@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from django.views.generic import FormView
-from testmain import views
-from testmain.forms import UploadForm
+from testmain.forms import UploadForm, UploadModelForm
 
-urlpatterns = patterns('',
-                       url(r'^form/', FormView.as_view(form_class=UploadForm,
-                                                       template_name="testmain/form.html",
-                                                       success_url="/testapp/form")),
-                       url(r'^modelform/', views.upload_modelform, name='modelform')
-)
+urlpatterns = [
+    url(r'^form/', FormView.as_view(form_class=UploadForm,
+                                    template_name="testmain/form.html",
+                                    success_url="/testapp/form")),
+    url(r'^modelform/', FormView.as_view(form_class=UploadModelForm,
+                                         template_name="testmain/form.html",
+                                         success_url="/testapp/modelform"))
+]

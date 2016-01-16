@@ -12,7 +12,7 @@ $(document).ready(function(){
         //console.log(data);
         if(data){
           $('#progressBar').removeAttr('hidden');  // show progress bar if there are datas
-          var progress = parseInt(data.uploaded, 10)/parseInt(data.length, 10)*100;
+          var progress = parseInt(data.recieved, 10)/parseInt(data.size, 10)*100;
           $('#progressBar').attr('value', progress);
         }
         else {

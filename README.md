@@ -15,7 +15,7 @@ The following users have been contributed:
 Quick start
 -----------
 
-Requirements : 
+Requirements :
 * Django 1.7.4 (tested).
 * Python 3.4
 * django.contrib.staticfiles app to serve static files
@@ -70,7 +70,7 @@ Usage
 
 Set the ```change_form_template``` and ```add_form_template``` attributes in your ModelAdmin to 'progressbarupload/change_form.html'.
 
-    
+
     from django.contrib import admin
     from my_awesome_app.models import MyAwesomeModelWithFiles
 
@@ -95,7 +95,7 @@ then go to http://127.0.0.1:8000/admin or http://127.0.0.1:8000/admin http://127
 
 To use a progress bar in your custom ModelForm or Form, load the progress_bar template tag set ```{% load progress_bar %}``` in the template, and use the following template tags ```{% progress_bar_media %}``` between <head> tags to load javascript files and  ```{% progress_bar %}``` where you and to display the progress bar.
 
-    
+
     {% load progress_bar %}
 
     <!DOCTYPE html>
@@ -142,4 +142,38 @@ pip install -r requirements/tests.txt django==1.7.4
 django-admin.py test --settings=progressbarupload.test_settings progressbarupload
 ```
 
+=======
+New: Use transparently with uwsgi/nginx
+---------------------------------------
+The combination of uwsgi and nginx prevent django-progressbarupload from
+working because nginx buffers the entire POST request until it is complete
+before sending it to uwsgi/django. This means your application runs faster as
+uwsgi threads are less tied up, but it also makes it impossible to view to
+progress Django side.
 
+Whilst you could use XMLHttpRequest 2.0 to get the progress client-side, you
+may not have the luxury if you need to support older browsers. This is where
+[RFC1867][2] comes in. By configuring the [nginx-upload-progress-module][1] in
+the following way, it is possible to transparently support the native method as
+well as the plugin:
+
+```
+	...
+	upload_progress uploadp 1m;
+	# JSON document rather than JSONP callback, pls
+	upload_progress_json_output;
+	...
+	location ^ upload/url/pattern/
+	    track_uploads uploadp 30s {
+	}
+	...
+	location ^~ /progressbarupload/upload_progress {
+	    report_uploads uploadp;
+	}
+
+```
+
+nginx-upload-progress-module is available on ubuntu in the `nginx-extras` package.
+
+[1]: https://github.com/masterzen/nginx-upload-progress-module
+[2]: http://www.rfcreader.com/#rfc1867
