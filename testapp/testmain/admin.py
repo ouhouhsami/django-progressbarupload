@@ -7,6 +7,7 @@ from django import forms
 class UploadFileModelForm(forms.ModelForm):
     class Meta:
         model = UploadFileModel
+        exclude = []
 
 
 class UploadFileModel2Inline(admin.TabularInline):

@@ -11,3 +11,4 @@ class UploadModelForm(forms.ModelForm):
 
     class Meta:
         model = UploadFileModel
+        exclude = []
