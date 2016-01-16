@@ -25,8 +25,8 @@ class ProgressBarUploadHandlerTest(TestCase):
         self.assertTrue(h.cache_key == '127.0.0.1_1234')
         h.receive_data_chunk('a' * 65536, 1)
         # test if the cache is well filled
-        self.assertTrue(cache.get(h.cache_key) ==
-            {'uploaded': 65536, 'length': 16777216, 'filename': 'some_file.jpg'})
+        self.assertEqual(cache.get(h.cache_key),
+                         {'received': 65536, 'size': 16777216})
         h.upload_complete()
         # test if cache is cleared for the cache_key
         sleep(31)
