@@ -20,9 +20,9 @@ class ProgressBarUploadHandlerTest(TestCase):
             request)
         h.file_name = 'some_file.jpg'
         h.handle_raw_input('', h.request.META, 2 ** 24, 'bOuNdArY')
-        self.assertTrue(h.cache_key in cache)
-        self.assertTrue(h.progress_id == '1234')
-        self.assertTrue(h.cache_key == '127.0.0.1_1234')
+        self.assertIn(h.cache_key, cache)
+        self.assertEqual(h.progress_id, '1234')
+        self.assertEqual(h.cache_key, '127.0.0.1_1234')
         h.receive_data_chunk('a' * 65536, 1)
         # test if the cache is well filled
         self.assertEqual(cache.get(h.cache_key),
@@ -30,4 +30,4 @@ class ProgressBarUploadHandlerTest(TestCase):
         h.upload_complete()
         # test if cache is cleared for the cache_key
         sleep(31)
-        self.assertFalse(h.cache_key in cache)
+        self.assertNotIn(h.cache_key, cache)
