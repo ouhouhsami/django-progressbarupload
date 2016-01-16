@@ -17,7 +17,7 @@ Quick start
 
 Requirements :
 * Django 1.7.4 (tested).
-* Python 3.4
+* Python 2.7 or 3.4
 * django.contrib.staticfiles app to serve static files
 
 
