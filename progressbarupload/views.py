@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
+import json
 from django.http import HttpResponse
 from django.core.cache import cache
-
-try:
-    import json
-except ImportError:
-    # Django <1.7 packages simplejson for older Python versions
-    from django.utils import simplejson as json
 
 
 def upload_progress(request):
