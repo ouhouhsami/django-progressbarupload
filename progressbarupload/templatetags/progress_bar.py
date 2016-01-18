@@ -1,13 +1,10 @@
 import uuid
 
 from django import template
+from django.conf import settings
 from django.forms.widgets import Media
 from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse
-
-from django.conf import settings
-
-PROGRESSBARUPLOAD_INCLUDE_JQUERY = getattr(settings,'PROGRESSBARUPLOAD_INCLUDE_JQUERY',True)
 
 register = template.Library()
 
@@ -36,8 +33,10 @@ def progress_bar_media():
 
     return rendered script tag for javascript used by progress_bar
     """
-    if PROGRESSBARUPLOAD_INCLUDE_JQUERY:
-        js = ["http://code.jquery.com/jquery-1.8.3.min.js",]
+    include_jquery = getattr(settings, 'PROGRESSBARUPLOAD_INCLUDE_JQUERY', False)
+
+    if include_jquery:
+        js = ["//code.jquery.com/jquery-1.12.0.min.js"]
     else:
         js = []
     js.append("js/progress_bar.js")

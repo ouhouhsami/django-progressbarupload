@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from models import UploadFileModel, UploadFileModel2
+from testmain.models import UploadFileModel, UploadFileModel2
 from django import forms
 
 
 class UploadFileModelForm(forms.ModelForm):
     class Meta:
         model = UploadFileModel
+        exclude = []
 
 
 class UploadFileModel2Inline(admin.TabularInline):

@@ -1,5 +1,5 @@
 from django import forms
-from models import UploadFileModel
+from testmain.models import UploadFileModel
 
 
 class UploadForm(forms.Form):
@@ -11,3 +11,4 @@ class UploadModelForm(forms.ModelForm):
 
     class Meta:
         model = UploadFileModel
+        exclude = []

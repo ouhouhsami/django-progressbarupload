@@ -13,7 +13,4 @@ FILE_UPLOAD_HANDLERS = (
     "progressbarupload.uploadhandler.ProgressBarUploadHandler",
 )
 
-
-TEST_RUNNER = 'discover_runner.DiscoverRunner'
-
 SECRET_KEY = 'very_secret_key'
