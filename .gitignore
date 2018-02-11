@@ -38,4 +38,5 @@ nosetests.xml
 db
 env
 
+.vscode/
 .idea/*

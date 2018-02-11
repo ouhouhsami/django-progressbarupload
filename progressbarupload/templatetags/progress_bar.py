@@ -1,13 +1,18 @@
 import uuid
 
+from django import VERSION as DJANGO_VERSION
 from django import template
 from django.conf import settings
 from django.forms.widgets import Media
 from django.utils.safestring import mark_safe
-from django.core.urlresolvers import reverse
+
+if DJANGO_VERSION[0] == 2:
+    from django.urls import reverse
+else if DJANGO_VERSION[0] == 1:
+    from django.core.urlresolvers import reverse
+
 
 register = template.Library()
-
 
 @register.simple_tag
 def progress_bar():
