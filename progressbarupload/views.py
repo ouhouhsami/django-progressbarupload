@@ -2,8 +2,10 @@
 import json
 from django.http import HttpResponse
 from django.core.cache import cache
+from django.views.decorators.cache import never_cache
 
 
+@never_cache
 def upload_progress(request):
     """
     Used by Ajax calls
